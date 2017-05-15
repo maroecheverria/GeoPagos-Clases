@@ -1,70 +1,43 @@
-Symfony Standard Edition
-========================
+EJERCICIO DE CLASES
+==================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+Se poseen las siguientes tablas:
+USUARIOS (codigousuario, usuario, clave, edad)
+FAVORITOS (codigousuario, codigousuariofavorito)
+USUARIOSPAGOS (codigopago, codigousuario)
+PAGOS (codigopago, importe, fecha)
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+Aclaración: la tabla "favoritos" une usuarios con otros usuarios a través de los campos codigousuario
+y codigousuariofavorito.
 
-What's inside?
---------------
+Cree las clases que le parezca conveniente tener, en relación a las tablas expuestas, para poder
+administrar (altas, bajas y modificaciones) los usuarios, sus favoritos, y sus pagos, teniendo en
+cuenta lo siguiente:
+a) Los usuarios no pueden tener un nombre de usuario vacío (campo “usuario” de la tabla
+Usuarios), y la edad debe ser mayor a 18.
+b) No deben poder crearse registros muertos (codigousuario inexistente en la tabla Usuarios)
+en la tabla Favoritos, teniendo en cuenta el control de sus dos campos.
+c) Ídem para la tabla UsuariosPagos
+d) El importe de los Pagos debe ser mayor a cero, y la fecha no puede ser anterior al dia de
+hoy.
+Las clases deben contar con todas las validaciones mencionadas, de manera que un
+programador que no tenga acceso a la documentación igualmente pueda instanciar y utilizar los
+objetos de estas clases correctamente
+No es necesario escribir las consultas SQL para guardar en base de datos
 
-The Symfony Standard Edition is configured with the following defaults:
+**Framework: Symfony Standard Edition 3.2**
 
-  * An AppBundle you can use to start coding;
+To run the Symfony application please follow these steps:
 
-  * Twig as the only configured template engine;
+ * ```-git clone https://github.com/maroecheverria/GeoPagos-Clases.git```
+ 
+ * ```composer install```
+ 
+ * browse to the project directory and execute this command ```$ php bin/console server:run```
+ 
+ * open your browser and access [http://localhost:8000/shapes](http://localhost:8000/clases)
+ 
+ **Enjoy!**
 
-  * Doctrine ORM/DBAL;
 
-  * Swiftmailer;
 
-  * Annotations enabled for everything.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.2/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.2/doctrine.html
-[8]:  https://symfony.com/doc/3.2/templating.html
-[9]:  https://symfony.com/doc/3.2/security.html
-[10]: https://symfony.com/doc/3.2/email.html
-[11]: https://symfony.com/doc/3.2/logging.html
-[12]: https://symfony.com/doc/3.2/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-# GeoPagos-Clases
