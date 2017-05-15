@@ -2,10 +2,10 @@ EJERCICIO DE CLASES
 ==================
 
 Se poseen las siguientes tablas: <br />
-USUARIOS (codigousuario, usuario, clave, edad) <br />
-FAVORITOS (codigousuario, codigousuariofavorito) <br />
-USUARIOSPAGOS (codigopago, codigousuario) <br />
-PAGOS (codigopago, importe, fecha)
+**USUARIOS** (codigousuario, usuario, clave, edad) <br />
+**FAVORITOS** (codigousuario, codigousuariofavorito) <br />
+**USUARIOSPAGOS** (codigopago, codigousuario) <br />
+**PAGOS** (codigopago, importe, fecha)
 
 Aclaración: la tabla "favoritos" une usuarios con otros usuarios a través de los campos codigousuario
 y codigousuariofavorito.
