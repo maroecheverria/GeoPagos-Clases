@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Pagos
@@ -48,5 +49,86 @@ class Pagos
     private $codigousuario;
 
 
-}
 
+    /**
+     * Set importe
+     *
+     * @param string $importe
+     *
+     * @return Pagos
+     */
+    public function setImporte($importe)
+    {
+        $this->importe = $importe;
+
+        return $this;
+    }
+
+    /**
+     * Get importe
+     *
+     * @return string
+     */
+    public function getImporte()
+    {
+        return $this->importe;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     *
+     * @return Pagos
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Get codigopago
+     *
+     * @return integer
+     */
+    public function getCodigopago()
+    {
+        return $this->codigopago;
+    }
+
+    /**
+     * Set codigousuario
+     *
+     * @param \AppBundle\Entity\Usuarios $codigousuario
+     *
+     * @return Pagos
+     */
+    public function setCodigousuario(\AppBundle\Entity\Usuarios $codigousuario = null)
+    {
+        $this->codigousuario = $codigousuario;
+
+        return $this;
+    }
+
+    /**
+     * Get codigousuario
+     *
+     * @return \AppBundle\Entity\Usuarios
+     */
+    public function getCodigousuario()
+    {
+        return $this->codigousuario;
+    }
+}
