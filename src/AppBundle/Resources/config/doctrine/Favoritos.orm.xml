@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Favoritos" table="favoritos">
+    <indexes>
+      <index name="IDX_1E86887FA5B4F832" columns="codigousuario"/>
+      <index name="IDX_1E86887F21F506FC" columns="codigousuariofavorito"/>
+    </indexes>
+    <id name="codigousuario" type="integer" column="codigousuario"/>
+    <id name="codigousuariofavorito" association-key="true"/>
+    <one-to-one field="codigousuariofavorito" target-entity="Usuarios" fetch="LAZY">
+      <join-columns>
+        <join-column name="codigousuariofavorito" referenced-column-name="codigousuario"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,153 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pagos
+ *
+ * @ORM\Table(name="pagos")
+ * @ORM\Entity
+ */
+class Pagos
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="importe", type="decimal", precision=10, scale=0, nullable=true)
+     */
+    private $importe;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="datetime", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigopago", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigopago;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Usuarios", inversedBy="codigopago")
+     * @ORM\JoinTable(name="usuariospagos",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="codigopago", referencedColumnName="codigopago")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codigousuario", referencedColumnName="codigousuario")
+     *   }
+     * )
+     */
+    private $codigousuario;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codigousuario = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
+     * Set importe
+     *
+     * @param string $importe
+     *
+     * @return Pagos
+     */
+    public function setImporte($importe)
+    {
+        $this->importe = $importe;
+
+        return $this;
+    }
+
+    /**
+     * Get importe
+     *
+     * @return string
+     */
+    public function getImporte()
+    {
+        return $this->importe;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     *
+     * @return Pagos
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Get codigopago
+     *
+     * @return integer
+     */
+    public function getCodigopago()
+    {
+        return $this->codigopago;
+    }
+
+    /**
+     * Add codigousuario
+     *
+     * @param \AppBundle\Entity\Usuarios $codigousuario
+     *
+     * @return Pagos
+     */
+    public function addCodigousuario(\AppBundle\Entity\Usuarios $codigousuario)
+    {
+        $this->codigousuario[] = $codigousuario;
+
+        return $this;
+    }
+
+    /**
+     * Remove codigousuario
+     *
+     * @param \AppBundle\Entity\Usuarios $codigousuario
+     */
+    public function removeCodigousuario(\AppBundle\Entity\Usuarios $codigousuario)
+    {
+        $this->codigousuario->removeElement($codigousuario);
+    }
+
+    /**
+     * Get codigousuario
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCodigousuario()
+    {
+        return $this->codigousuario;
+    }
+}
