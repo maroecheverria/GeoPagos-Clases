@@ -28,11 +28,10 @@ class Favoritos
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Usuarios")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="codigousuariofavorito", referencedColumnName="codigousuario")
+     *   @ORM\JoinColumn(name="codigousuariofavorito", referencedColumnName="codigousuario", onDelete="CASCADE")
      * })
      */
     private $codigousuariofavorito;
-
 
 
     /**

@@ -16,7 +16,6 @@ class Pagos
      * @var string
      *
      * @ORM\Column(name="importe", type="decimal", precision=10, scale=0, nullable=true)
-     * @Assert\GreaterThan(18)
      */
     private $importe;
 
@@ -24,7 +23,6 @@ class Pagos
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="datetime", nullable=true)
-     * @Assert\GreaterThanOrEqual("today UTC")
      */
     private $fecha;
 
@@ -42,7 +40,7 @@ class Pagos
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Usuarios")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="codigousuario", referencedColumnName="codigousuario")
+     *   @ORM\JoinColumn(name="codigousuario", referencedColumnName="codigousuario", onDelete="CASCADE")
      * })
      */
     private $codigousuario;

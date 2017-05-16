@@ -9,7 +9,7 @@
     <id name="codigousuariofavorito" association-key="true"/>
     <one-to-one field="codigousuariofavorito" target-entity="Usuarios" fetch="LAZY">
       <join-columns>
-        <join-column name="codigousuariofavorito" referenced-column-name="codigousuario"/>
+        <join-column name="codigousuariofavorito" referenced-column-name="codigousuario" on-delete="CASCADE"/>
       </join-columns>
     </one-to-one>
   </entity>

@@ -48,7 +48,7 @@ class UsuariosController extends Controller
      */
     public function updateAction(Usuarios $usuario)
     {
-        $usuario->setEdad(64);
+            $usuario->setEdad(64);
 
         $validator = $this->get('validator');
         $errors = $validator->validate($usuario);

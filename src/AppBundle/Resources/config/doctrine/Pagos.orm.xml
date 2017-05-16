@@ -11,7 +11,7 @@
     <field name="fecha" type="datetime" column="fecha" nullable="true"/>
     <many-to-one field="codigousuario" target-entity="Usuarios" fetch="LAZY">
       <join-columns>
-        <join-column name="codigousuario" referenced-column-name="codigousuario"/>
+        <join-column name="codigousuario" referenced-column-name="codigousuario" on-delete="CASCADE"/>
       </join-columns>
     </many-to-one>
   </entity>

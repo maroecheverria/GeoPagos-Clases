@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Usuarios
@@ -14,10 +13,18 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Usuarios
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigousuario", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigousuario;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="usuario", type="string", length=64, nullable=false)
-     * @Assert\NotBlank()
      */
     private $usuario;
 
@@ -32,20 +39,19 @@ class Usuarios
      * @var integer
      *
      * @ORM\Column(name="edad", type="integer", nullable=false)
-     * @Assert\GreaterThan(18)
      */
     private $edad;
 
+
     /**
-     * @var integer
+     * Get codigousuario
      *
-     * @ORM\Column(name="codigousuario", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @return integer
      */
-    private $codigousuario;
-
-
+    public function getCodigousuario()
+    {
+        return $this->codigousuario;
+    }
 
     /**
      * Set usuario
@@ -117,15 +123,5 @@ class Usuarios
     public function getEdad()
     {
         return $this->edad;
-    }
-
-    /**
-     * Get codigousuario
-     *
-     * @return integer
-     */
-    public function getCodigousuario()
-    {
-        return $this->codigousuario;
     }
 }

@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Usuarios
@@ -17,7 +16,6 @@ class Usuarios
      * @var string
      *
      * @ORM\Column(name="usuario", type="string", length=64, nullable=false)
-     * @Assert\NotBlank()
      */
     private $usuario;
 
