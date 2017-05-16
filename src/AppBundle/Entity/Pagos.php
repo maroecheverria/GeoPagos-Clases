@@ -16,7 +16,7 @@ class Pagos
     /**
      * @var string
      *
-     * @ORM\Column(name="importe", type="decimal", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="importe", type="decimal", precision=10, scale=2, nullable=true)
      * @Assert\GreaterThan(18)
      */
     private $importe;

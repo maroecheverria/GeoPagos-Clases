@@ -23,7 +23,7 @@ class PagosController extends Controller
 
         $pago->setCodigousuario($usuario);
         $pago->setImporte(29.45);
-        $date = new \DateTime("2017/05/15");
+        $date = new \DateTime("2017/06/16");
         $pago->setFecha($date);
 
         $validator = $this->get('validator');
@@ -46,28 +46,17 @@ class PagosController extends Controller
     }
 
     /**
-     * @Route("/usuarios/delete/{id}", name="usuarios_delete")
-     * @ParamConverter("usuarios", options={"id" = "codigousuario"})
+     * @Route("/pagos/update/{id}", name="pagos_update")
+     * @ParamConverter("pagos", options={"id" = "codigopago"})
      */
-    public function deleteAction(Usuarios $usuario)
+    public function updateAction(Pagos $pago)
     {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($usuario);
-        $em->flush();
-
-        return new Response('El usuario ha sido eliminado.');
-    }
-
-    /**
-     * @Route("/usuarios/update/{id}", name="usuarios_update")
-     * @ParamConverter("usuarios", options={"id" = "codigousuario"})
-     */
-    public function updateAction(Usuarios $usuario)
-    {
-        $usuario->setEdad(64);
+        $pago->setImporte(40.5);
+        $date = new \DateTime("2017/07/16");
+        $pago->setFecha($date);
 
         $validator = $this->get('validator');
-        $errors = $validator->validate($usuario);
+        $errors = $validator->validate($pago);
 
         if (count($errors) > 0) {
 
@@ -79,6 +68,19 @@ class PagosController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
-        return new Response('El usuario ha sido editado.');
+        return new Response('El pago ha sido editado.');
+    }
+
+    /**
+     * @Route("/pagos/delete/{id}", name="pagos_delete")
+     * @ParamConverter("pagos", options={"id" = "codigopago"})
+     */
+    public function deleteAction(Pagos $pago)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($pago);
+        $em->flush();
+
+        return new Response('El pagos ha sido eliminado.');
     }
 }

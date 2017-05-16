@@ -43,19 +43,6 @@ class UsuariosController extends Controller
     }
 
     /**
-     * @Route("/usuarios/delete/{id}", name="usuarios_delete")
-     * @ParamConverter("usuarios", options={"id" = "codigousuario"})
-     */
-    public function deleteAction(Usuarios $usuario)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($usuario);
-        $em->flush();
-
-        return new Response('El usuario ha sido eliminado.');
-    }
-
-    /**
      * @Route("/usuarios/update/{id}", name="usuarios_update")
      * @ParamConverter("usuarios", options={"id" = "codigousuario"})
      */
@@ -77,5 +64,18 @@ class UsuariosController extends Controller
         $em->flush();
 
         return new Response('El usuario ha sido editado.');
+    }
+
+    /**
+     * @Route("/usuarios/delete/{id}", name="usuarios_delete")
+     * @ParamConverter("usuarios", options={"id" = "codigousuario"})
+     */
+    public function deleteAction(Usuarios $usuario)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($usuario);
+        $em->flush();
+
+        return new Response('El usuario ha sido eliminado.');
     }
 }
