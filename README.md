@@ -32,11 +32,29 @@ To run the Symfony application please follow these steps:
 
  * ```-git clone https://github.com/maroecheverria/GeoPagos-Clases.git```
  
- * ```composer install```
+ * create database in localhost called symfony
+ 
+ * ```composer install``` and set db parameters. If you want you can set them in /app/config/parameters.yml
  
  * browse to the project directory and execute this command ```$ php bin/console server:run```
  
- * open your browser and access [http://localhost:8000/shapes](http://localhost:8000/clases)
+ * run ```php bin/console doctrine:migrations:migrate``` from project directory
+ 
+ *To test it, open your browser and access:*
+ 
+ [http://localhost:8000/usuarios/create](http://localhost:8000/usuarios/create) -> create usuario <br />
+ [http://localhost:8000/usuarios/update/codigousuario](http://localhost:8000/usuarios/update/codigousuario) -> update usuario <br />
+ [http://localhost:8000/usuarios/delete/codigousuario](http://localhost:8000/usuarios/delete/codigousuario) -> delete usuario <br />
+ 
+ [http://localhost:8000/pagos/create/codigousuario](http://localhost:8000/pagos/create/codigousuario) -> create pago <br />
+ [http://localhost:8000/pagos/update/codigopago](http://localhost:8000/pagos/update/codigopago) -> update pago <br />
+ [http://localhost:8000/pagos/delete/codigopago](http://localhost:8000/pagos/delete/codigopago) -> delete pago <br />
+ 
+ [http://localhost:8000/favoritos/create/codigousuario/codigofavorito](http://localhost:8000/favoritos/create/codigousuario/codigofavorito) -> create favorito <br />
+ [http://localhost:8000/favoritos/update/codigousuario/codigofavorito](http://localhost:8000/favoritos/update/codigousuario/codigofavorito) -> update favorito <br />
+ [http://localhost:8000/favoritos/delete/codigousuario/codigofavorito](http://localhost:8000/favoritos/delete/codigousuario/codigofavorito) -> delete favorito <br />
+ 
+ 
  
  **Enjoy!**
 
